@@ -2,7 +2,7 @@ import React from 'react'
 
 function Lyrics() {
   return (
-    <div>Lyrics</div>
+    <di>nmdsfj</di>
   )
 }
 

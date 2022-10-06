@@ -3,16 +3,12 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 function Track({track}) {
-    if (track.artist.name !== undefined) {
-    var artist = track.artist.name;
-  } else {
-    artist = track.artist;
-  }
+    const artist_check = track.artist.name !== undefined ? track.artist.name : track.artist
   return (
     <div className="col-md-6">
       <div className="card mb-4">
         <div className="card-body text-center">
-          <h5>{artist}</h5>
+          <h5>{artist_check}</h5>
           <p className="card-text">
             <strong>
               <i className="fas fa-play"></i> Track
@@ -21,12 +17,12 @@ function Track({track}) {
             <br />
           </p>
 
-          <Link
-            to={`lyrics/${artist}/${track.name}`}
+          {/* <Link
+            to={`lyrics/${artist_check}/${track.name}`}
             className="btn btn-info lyrics-btn"
           >
             <i className="fas fa-chevron-right"></i> View Lyrics
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import Search from "./Search";
-import Tracks from "./Track";
+import Search from "../components/Search";
+import Tracks from "../components/Track";
 
 function Container() {
   return (
