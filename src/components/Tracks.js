@@ -1,20 +1,36 @@
-import React, {useState, useEffect} from 'react'
-import Track from './Track';
+import React from "react";
+import { Link } from "react-router-dom";
+const Track = props => {
+  const { track } = props;
+  if (track.artist.name !== undefined) {
+    var artist = track.artist.name;
+  } else {
+    artist = track.artist;
+  }
 
-function Tracks() {
-    const [topTen, setTopTen] = useState([])
-  
-    useEffect(() =>{
-        fetch(`https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=ke&f_has_lyrics=1&apikey=${process.env.REACT_APP_KEY}`)
-        .then(res =>res.json())
-        .then(data => setTopTen(data.message.body.track_list))
-    }, [])
-    console.log(topTen);
   return (
-    <div>
-      <Track tracks={topTen}/>
-    </div>
-  )
-}
+    <div className="col-md-6">
+      <div className="card mb-4">
+        <div className="card-body text-center">
+          <h5>{artist}</h5>
+          <p className="card-text">
+            <strong>
+              <i className="fas fa-play"></i> Track
+            </strong>
+            : {track.name}
+            <br />
+          </p>
 
-export default Tracks
+          <Link
+            to={`lyrics/${artist}/${track.name}`}
+            className="btn btn-info lyrics-btn"
+          >
+            <i className="fas fa-chevron-right"></i> View Lyrics
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Track;
