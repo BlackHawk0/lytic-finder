@@ -1,36 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Track = props => {
-  const { track } = props;
-  if (track.artist.name !== undefined) {
-    var artist = track.artist.name;
-  } else {
-    artist = track.artist;
-  }
+import React from 'react'
+import Track from './Track'
+import Spinner from './Spinner'
 
-  return (
-    <div className="col-md-6">
-      <div className="card mb-4">
-        <div className="card-body text-center">
-          <h5>{artist}</h5>
-          <p className="card-text">
-            <strong>
-              <i className="fas fa-play"></i> Track
-            </strong>
-            : {track.name}
-            <br />
-          </p>
-
-          <Link
-            to={`lyrics/${artist}/${track.name}`}
-            className="btn btn-info lyrics-btn"
-          >
-            <i className="fas fa-chevron-right"></i> View Lyrics
-          </Link>
-        </div>
+function Tracks({tracks}) {
+  // Check if tracks are loaded
+  const track_check = tracks.length === 0 || tracks === undefined ? <Spinner/> : tracks.map(track => (
+      <Track key={track.track.track_id} track={track.track}/>
+  ))
+  return(
+      <div>
+          <h3 className='text-center mb-3 mt-6 font-bold'>Top 10 Tracks</h3>
+          <div className='flex flex-wrap '>
+              {track_check}
+          </div>
       </div>
-    </div>
-  );
-};
+      
+  )
+}
 
-export default Track;
+export default Tracks
