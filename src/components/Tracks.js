@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import ListTracks from './ListTracks';
+import Track from './Track';
 
 function Tracks() {
     const [topTen, setTopTen] = useState([])
@@ -12,7 +12,7 @@ function Tracks() {
     console.log(topTen);
   return (
     <div>
-      <ListTracks tracks={topTen}/>
+      <Track tracks={topTen}/>
     </div>
   )
 }

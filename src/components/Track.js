@@ -2,20 +2,24 @@ import React from 'react'
 import RenderTrack from './RenderTrack'
 import Spinner from './Spinner'
 
-function ListTracks({tracks}) {
+function Track({tracks}) {
     
     // Check if tracks are loaded
     const track_check = tracks.length === 0 || tracks === undefined ? <Spinner/> : tracks.map(track => (
         <RenderTrack key={track.track.track_id} track={track.track}/>
     ))
     return(
-        <div>
-            {track_check}
-        </div>
+        <>
+            <h2 className='text-center mb-3 mt-6 font-bold'>Top 10 Tracks</h2>
+            <div className='flex flex-wrap '>
+                {track_check}
+            </div>
+        </>
+        
     )
 }
 
-export default ListTracks
+export default Track
 
 
 // import React from 'react'
@@ -23,7 +27,7 @@ export default ListTracks
 
 
 // //use tailwind in styling
-// function ListTracks({tracks}) {
+// function Track({tracks}) {
 //     // Check if tracks are loaded
 //     const track_check = tracks.length > 0 ? tracks.map(track => {
 //         return (
@@ -50,4 +54,4 @@ export default ListTracks
 //     )
 // }
 
-// export default ListTracks
+// export default Track
