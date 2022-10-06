@@ -9,12 +9,12 @@ function Track({tracks}) {
         <RenderTrack key={track.track.track_id} track={track.track}/>
     ))
     return(
-        <>
+        <div>
             <h2 className='text-center mb-3 mt-6 font-bold'>Top 10 Tracks</h2>
             <div className='flex flex-wrap '>
                 {track_check}
             </div>
-        </>
+        </div>
         
     )
 }

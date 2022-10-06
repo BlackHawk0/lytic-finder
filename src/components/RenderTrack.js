@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 function RenderTrack({track}) {
   
@@ -10,16 +9,16 @@ function RenderTrack({track}) {
                     <h5>{track.artist_name}</h5>
                     <p className='mb-0'><strong><i className='fas fa-play'></i>Track</strong>: {track.track_name}
                     <br />
-                   <strong><i className='fas fa-play'></i>Album </strong>: {track.album_name}
+                   <strong><i className='fas fa-compact-disc'></i>Album </strong>: {track.album_name}
                    </p>
                 </div>
                 <div className="p-5">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 text-center">#{track.primary_genres.music_genre_list[0].music_genre.music_genre_name}</span>
                 </div>
             </div>
-            <Link >
-
-            </Link>
+            {/* <Link to={`lyrics/track/${track.track_id}`}>
+                <i className='fas fa-chevron-right'></i> View Lyrics
+            </Link> */}
         </div>
 
     )
